@@ -1,5 +1,6 @@
 import { menuItem } from '@/utils/badges'
 import { BookOpen, ChevronDown, File, LayoutDashboard, Plus, Settings, Users } from 'lucide-react'
+import Link from 'next/link';
 import React from 'react'
 
 interface SidebarCollapsed {
@@ -23,18 +24,20 @@ export default function Sidebar({ collapsed, onToggle }: SidebarCollapsed) {
             </div>
 
             {/* Create new lessons section */}
-            <div className='flex p-4 space-y-2 overflow-y-auto'>
-                {!collapsed ? (
-
-                    <button className='flex items-center space-x-3 bg-[#128770] text-white rounded-lg p-2'>
-                        Create new Lesson <span><ChevronDown /></span>
-                    </button>
-                ) : (
-                    <div>
-                        <Plus />
-                    </div>
-                )}
-            </div>
+            <Link href="/lesson">
+                <div className='flex p-4 space-y-2 overflow-y-auto'>
+                    {!collapsed ? (
+                        
+                        <button className='flex items-center space-x-3 bg-[#128770] text-white rounded-lg p-2'>
+                            Create new Lesson <span><ChevronDown /></span>
+                        </button>
+                    ) : (
+                        <div>
+                            <Plus />
+                        </div>
+                    )}
+                </div>
+            </Link>
 
             {/* Menu section */}
             <div className='flex-1 p-4 space-y-2 overflow-y-auto'>
